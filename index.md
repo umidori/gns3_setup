@@ -9,6 +9,7 @@ VirtualBoxのインストール方法は割愛します。
 # GNS3のインストール
 ## MAC版
 以下のサイトからGNS3を入手します。アカウントを持っていない場合は、右上の「Sign Up」から作成します。その後、「Free Download」->「Download」をクリック、Mac版のGNSダウンロードし、同サイトのInstall Guideを参考にインストールを行います。
+
 https://www.gns3.com
 
 ## VirtualBox版
