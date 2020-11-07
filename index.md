@@ -1,26 +1,26 @@
 # はじめに
 GNS3はネットワーク機器をエミュレートし、PC上に仮想のネットワークを構築することができるフリーのアプリケーションです。机上でネットワーク機器の動作を確認することができるため、ネットワークの勉強に最適です。
-自宅のMacにネットワークの勉強用にGNS3をインストールして、簡単なネットワークを組んで遊んでみたのでその方法を記します。
+自宅のMacにGNS3をインストールして、簡単なネットワークを構築してみたのでその方法を記します。
 
 # 環境
-今回はMac上のVirtualBoxにGNS3のVMを作成することとしました。
+今回はMac上のVirtualBoxにGNS3のVMを作成しました。
 VirtualBoxのインストール方法は割愛します。
 
 # GNS3のインストール
 ## MAC版
-下記のサイトからGNS3を入手します。アカウントを持っていない場合は、右上の「Sign Up」から作成します。その後、「Free Download」->「Download」をクリック、Mac版のGNSダウンロードし、同サイトのInstall Guideを参考にインストールを行います。
+下記のサイトからGNS3を入手します。アカウントを持っていない場合は、右上の「Sign Up」から作成します。その後、「Free Download」->「Download」をクリックしてMac版のGNSダウンロードし、同サイトのInstall Guideを参考にインストールを行います。
 
 https://www.gns3.com
 
 ## VirtualBox版
 下記のサイトからVirtualBox用のGNS3 VMのイメージの圧縮ファイル「GNS3.VM.VirtualBox.X.X.XX.zip(X.X.XXはバージョン番号)」をダウンロードします（必ず上で入手したGNS3とバージョンを合わせます）。
-圧縮ファイルを展開すると「GNS3 VM.ova」という名前のファイルができます。バーチャルボックスのメニューの「ファイル」->「仮想アプライアンスインポート」で「インポートしたい仮想アプライアンス」画面を開き、このファイルを選択してインポートを行うとVirtualBox上に「GNS3 VM」という仮想マシンが出来上がります(仮想マシンの設定はCPUの数を2に、RAMは4096MBにするのがネットでよく見かける設定です)。
+圧縮ファイルを展開すると「GNS3 VM.ova」という名前のファイルができます。バーチャルボックスのメニューの「ファイル」->「仮想アプライアンスインポート」で「インポートしたい仮想アプライアンス」画面を開き、このファイルを選択してインポートを行うとVirtualBox上に「GNS3 VM」という仮想マシンが出来上がります(このとき仮想マシンの設定はCPUの数を2に、RAMは4096MBにするのがネットでよく見かける設定です)。
 出来上がった仮想マシンはVirtualBoxから立ち上げる必要がありません。立ち上げてしまった場合は「ShutDown」を選択して終わらせてください。
 
 https://github.com/GNS3/gns3-gui/releases
 
 # GNS3のセットアップ
-MACにインストールしたGNS3を起動します。初めに「Setup Wizard」の「Server」選択画面が表示されます。選択肢の中から「Run applications in a virtual machine」を選択し「Next >」ボタンを押下します。
+MACにインストールしたGNS3を起動します。初めに「Setup Wizard」の「Server」選択画面が表示されます。選択肢の中から「Run applications in a virtual machine」を選択し「Next >」ボタンをクリックします。
 
 ![SetupWizard.png](https://umidori.github.io/gns3_setup/SetupWizard.png)
 
@@ -47,7 +47,7 @@ GNS3のメニューから「GNS3」->「Preferences...」->「GNS3 VM」を選�
 # GNS3での仮想ネットワーク構築
 
 スイッチングハブを使った簡単なネットワークを構築します。
-セットアップが完了したGNS3を起動します。プロジェクト名を求められるので、適当な名前を入力して「OK」ボタンをクリックします。
+Virtual BoxのGNS3ではなく、MacのGNS3を起動します。プロジェクト名を求められるので、適当な名前を入力して「OK」ボタンをクリックします。
 
 ![Project.png](https://umidori.github.io/gns3_setup/Project.png)
 
@@ -66,7 +66,7 @@ GNS3が立ち上がったら、画面の左のアイコンの「Browse Switches�
 
 ![Switch1.png](https://umidori.github.io/gns3_setup/Switch1.png)
 
-次は仮想のPCを作成します。今度は画面の左のアイコンの「Browse End Device」をクリックします。
+次に仮想のPCを作成します。画面の左のアイコンの「Browse End Device」をクリックします。
 
 ![BrowseEndDevices.png](https://umidori.github.io/gns3_setup/BrowseEndDevices.png)
 
@@ -78,7 +78,7 @@ GNS3が立ち上がったら、画面の左のアイコンの「Browse Switches�
 
 ![PC1.png](https://umidori.github.io/gns3_setup/PC1.png)
 
-スイッチとPCをケーブルで繋ぎます。左のアイコンの中の「Add a link」をクリックしたのち、画面の「Switch1」アイコンをクリックします。結線するポートが表示されるので、その中の適当なポートを選択します。
+スイッチとPCをケーブルでつなぎます。左のアイコンの中の「Add a link」をクリックしたのち、画面の「Switch1」アイコンをクリックします。結線するポートが表示されるので、その中の適当なポートを選択します。
 
 ![Switch1Ethernet0_2.png](https://umidori.github.io/gns3_setup/Switch1Ethernet0_2.png)
 
@@ -86,7 +86,7 @@ GNS3が立ち上がったら、画面の左のアイコンの「Browse Switches�
 
 ![PC1Ethernet0_1.png](https://umidori.github.io/gns3_setup/PC1Ethernet0_1.png)
 
-スイッチとPCを繋いだら、PCを起動します。「PC1」アイコンを右クリックし、表示されたメニューの中から「Start」を選択します。
+スイッチとPCをつないだら、PCを起動します。「PC1」アイコンを右クリックし、表示されたメニューの中から「Start」を選択します。
 
 ![PC1_Start.png](https://umidori.github.io/gns3_setup/PC1_Start.png)
 
@@ -102,7 +102,7 @@ PCが起動したら、PCのコンソールを開いてIPアドレスを与え�
 
 ![PC1Console2.png](https://umidori.github.io/gns3_setup/PC1Console2.png)
 
-分かりやすいように画面上の「PC1」の文字をダブルクリックし、上で指定したIPアドレスに変更します。
+画面上の「PC1」の文字をダブルクリックし、上で指定したIPアドレスに変更します。PCのIPアドレスが一目で分かるようになります。
 
 ![HostNameIP.png](https://umidori.github.io/gns3_setup/HostNameIP.png)
 
@@ -129,8 +129,6 @@ Settingsの中のPortとVLANを所定の値にした後、「Add」ボタンを�
 
 作成したネットワークの隣に同じような構成のネットワークをもう一つ作成します。
 
-
-
 ![Switch1-2.png](https://umidori.github.io/gns3_setup/Switch1-2.png)
 
 
@@ -153,7 +151,7 @@ Swich1とSwitch2をケーブルでつなげます。
 |-----------|-----------|-----------|-----------|
 |7          |dot1q      |7          |dot1q      |
 
-これでスイッチを使ったVLAN構成のネットワークが完成しました。仮想PCのコンソールからお互いにpingを打ち合って接続状態を確認します。
+これでスイッチを使ったVLAN構成のネットワークが完成しす。仮想PCのコンソールからお互いにpingを打ち合あうと、接続の状態が確認できます。
 
 ![PC1Console3.png](https://umidori.github.io/gns3_setup/PC1Console3.png)
 
