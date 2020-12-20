@@ -1,25 +1,27 @@
-# はじめに
+# GNS3を使った簡単なネットワーク構築方法
+
+## はじめに
 GNS3はネットワーク機器をエミュレートし、PC上に仮想のネットワークを構築することができるフリーのアプリケーションです。机上でネットワーク機器の動作を確認することができるため、ネットワークの勉強に最適です。
 自宅のMacにGNS3をインストールして、簡単なネットワークを構築してみたのでその方法を記します。
 
-# 環境
+## 環境
 今回はMac上のVirtualBoxにGNS3のVMを作成しました。
 VirtualBoxのインストール方法は割愛します。
 
-# GNS3のインストール
-## MAC版
+## GNS3のインストール
+### MAC版
 下記のサイトからGNS3を入手します。アカウントを持っていない場合は、右上の「Sign Up」から作成します。その後、「Free Download」->「Download」をクリックしてMac版のGNSダウンロードし、同サイトのInstall Guideを参考にインストールを行います。
 
 https://www.gns3.com
 
-## VirtualBox版
+### VirtualBox版
 下記のサイトからVirtualBox用のGNS3 VMのイメージの圧縮ファイル「GNS3.VM.VirtualBox.X.X.XX.zip(X.X.XXはバージョン番号)」をダウンロードします（必ず上で入手したGNS3とバージョンを合わせます）。
 圧縮ファイルを展開すると「GNS3 VM.ova」という名前のファイルができます。バーチャルボックスのメニューの「ファイル」->「仮想アプライアンスインポート」で「インポートしたい仮想アプライアンス」画面を開き、このファイルを選択してインポートを行うとVirtualBox上に「GNS3 VM」という仮想マシンが出来上がります(このとき仮想マシンの設定はCPUの数を2に、RAMは4096MBにするのがネットでよく見かける設定です)。
 出来上がった仮想マシンはVirtualBoxから立ち上げる必要がありません。立ち上げてしまった場合は「ShutDown」を選択して終わらせてください。
 
 https://github.com/GNS3/gns3-gui/releases
 
-# GNS3のセットアップ
+## GNS3のセットアップ
 MACにインストールしたGNS3を起動します。初めに「Setup Wizard」の「Server」選択画面が表示されます。選択肢の中から「Run applications in a virtual machine」を選択し「Next >」ボタンをクリックします。
 
 ![SetupWizard.png](https://umidori.github.io/gns3_setup/SetupWizard.png)
@@ -44,7 +46,7 @@ Virtual BoxのGNS3 VMが起動したら、Finishボタンをクリックしま�
 
 GNS3のメニューから「GNS3」->「Preferences...」->「GNS3 VM」を選択して表示される画面の「Run the VM in headless mode」にチェックを入れると、GNS3 VMが起動しても、画面には表示されなくなります。メニューから「GNS3」->「Quit GNS3」を選択すると、起動したVirtual BoxのVMとともにGNS3が終了します。
 
-# GNS3での仮想ネットワーク構築
+## GNS3での仮想ネットワーク構築
 
 スイッチングハブを使った簡単なネットワークを構築します。
 Virtual BoxのGNS3ではなく、MacのGNS3を起動します。プロジェクト名を求められるので、適当な名前を入力して「OK」ボタンをクリックします。
